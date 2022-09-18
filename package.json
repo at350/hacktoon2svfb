@@ -15,6 +15,12 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"firebase": "^9.10.0"
+		"firebase": "^9.10.0",
+		"jquery": "^3.6.1",
+		"svelte-typewriter": "^3.0.4",
+		"swiper": "^8.4.2",
+		"typewriter-effect": "^2.19.0",
+		"uuid": "^9.0.0",
+		"vanilla-tilt": "^1.7.2"
 	}
 }

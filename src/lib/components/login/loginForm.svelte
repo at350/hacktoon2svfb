@@ -16,7 +16,7 @@
             .then((userCredential) => {
                 const user = userCredential.user;
                 localStorage.setItem("uid", user.uid)
-                goto("/")
+                goto("/home")
             })
             .catch((error) => {
                 console.error(error);
@@ -28,7 +28,7 @@
             .then((userCredential) => {
                 const user = userCredential.user;
                 localStorage.setItem("uid", user.uid)
-                goto("/")
+                goto("/home")
             })
             .catch((error) => {
                 console.error(error);
@@ -61,14 +61,24 @@
                     Password (min 6 characters)
                 {/if}
             </label>
-            <input
-              type="password"
-              class="form-control"
-              id="passInput"
-              placeholder="Password"
-              required
-              pattern=".{6}"
-            />
+            {#if title == "Login"}
+                <input
+                type="password"
+                class="form-control"
+                id="passInput"
+                placeholder="Password"
+                required
+                />
+            {:else}
+                <input
+                type="password"
+                class="form-control"
+                id="passInput"
+                placeholder="Password"
+                required
+                minlength="6"
+                />
+            {/if}
           </div>
           {#if showNotFound}
             <p class="warningLogin">
@@ -86,30 +96,30 @@
     </div>
   </div>
   
-  <style>
-    .card {
-      width: 50%;
-      margin: 0 auto;
-    }
-    .login {
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
+<style>
+.card {
+    width: 50%;
+    margin: 0 auto;
+}
+.login {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.login-form {
+    width: 60%;
+    margin: 0 auto;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .login-form {
-      width: 60%;
-      margin: 0 auto;
+    width: 90%;
     }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-      .login-form {
-        width: 90%;
-      }
-      .card {
-        width: 90%;
-      }
+    .card {
+    width: 90%;
     }
+}
 
-    .warningLogin {
-        color: red;
-        font-weight: 700;
-    }
-  </style>
+.warningLogin {
+    color: red;
+    font-weight: 700;
+}
+</style>

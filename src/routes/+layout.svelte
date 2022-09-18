@@ -8,9 +8,10 @@
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log("User is signed in");
+                console.log("Redir from onmount");
+                goto('/home');
             } else {
-                goto('/login');
+                goto('/')
             }
         });
     });
